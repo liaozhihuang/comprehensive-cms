@@ -9,6 +9,11 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
+*/node_modules
+!manage/node_modules
+/manage/node_modules
+./*/node_modules
+
 # Generated files
 .idea/**/contentModel.xml
 
