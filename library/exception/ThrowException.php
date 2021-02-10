@@ -1,7 +1,7 @@
 <?php
 declare (strict_types = 1);
 
-namespace app\exception;
+namespace library\exception;
 
 class ThrowException extends BaseException
 {

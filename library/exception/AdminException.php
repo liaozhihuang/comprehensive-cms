@@ -1,6 +1,6 @@
 <?php
 
-namespace app\exception;
+namespace library\exception;
 
 use think\exception\Handle;
 use think\exception\ValidateException;
