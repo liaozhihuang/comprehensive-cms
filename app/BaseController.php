@@ -6,12 +6,15 @@ namespace app;
 use think\App;
 use think\exception\ValidateException;
 use think\Validate;
+use library\services\JsonService;
 
 /**
  * 控制器基础类
  */
 abstract class BaseController
 {
+    use JsonService;
+
     /**
      * Request实例
      * @var \think\Request

@@ -13,6 +13,11 @@ abstract class BaseLogic
 {
     use JsonService;
 
+    public function __construct()
+    {
+    }
+
+
 
     const LOG_CREATE_TYPE = 'create';
     
