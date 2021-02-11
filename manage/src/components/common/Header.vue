@@ -27,8 +27,6 @@
     </a-layout-sider>
     <a-layout>
 
-
-
         <a-layout-header style="background: #fff; padding: 0">
             <a-button type="primary" @click="toggleCollapsed" style="margin-bottom: 16px">
                 <MenuUnfoldOutlined v-if="collapsed" />

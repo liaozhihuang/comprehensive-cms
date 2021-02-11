@@ -1,5 +1,6 @@
 import { createRouter,createWebHistory } from 'vue-router'
 import Index from "../components/pages/Index.vue"
+import User from "../components/pages/User.vue"
 
 import Header from '../components/common/Header.vue'
 
@@ -26,6 +27,12 @@ const router = createRouter({
 					name: 'index',
 					component:Index,
 				},
+				{
+					path: '/user',
+					name: 'user',
+					component:User,
+				},
+
 
 
 
