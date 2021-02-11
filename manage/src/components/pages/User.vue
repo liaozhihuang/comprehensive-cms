@@ -15,7 +15,7 @@
             <div class="handle-box">
                 <a-button type="primary" v-focus="'/api/user/createUser'" @click="addView()" class="mr10"><template #icon><PlusOutlined /></template>创建</a-button>
                 <a-input v-model:value="search" placeholder="管理员名称" class="handle-input mr10"></a-input>
-                  <a-button type="primary" @click="handleSearch">
+                <a-button type="primary" @click="handleSearch">
                     <template #icon><SearchOutlined /></template>搜索
                 </a-button>
             </div>
