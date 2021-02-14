@@ -55,7 +55,11 @@ abstract class BaseController
 
     // 初始化
     protected function initialize()
-    {}
+    {
+        header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Methods:*");
+        header('Access-Control-Allow-Methods:GET, POST, OPTIONS');
+    }
 
     /**
      * 验证数据

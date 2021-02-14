@@ -12,7 +12,7 @@ if(localStorage.getItem('authorization')){
 }
 
 // axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? process.env.VUE_APP_BASEURL : process.env.VUE_APP_BASEURL; //配置接口地址
-let baseLink = '/api';//http://bitcms.cn
+let baseLink = 'http://comprehensive.cn/api';//http://bitcms.cn
 //POST传参序列化(添加请求拦截器)
 axios.interceptors.request.use((config) => {
 

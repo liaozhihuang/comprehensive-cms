@@ -26,6 +26,9 @@ class AdminException extends Handle
 
     public function render($request, Throwable $e): Response
     {
+        dump($e);
+        exit;
+
         // 参数验证错误
         if ($e instanceof ValidateException){
             return app('json')->make(422, $e->getError());
