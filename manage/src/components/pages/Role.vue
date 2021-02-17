@@ -18,7 +18,20 @@
 					<div class="editable-row-operations" v-if="record.id !=1">
 						<a-button size="small" type="link" v-focus="'/api/role/updateRole'" @click="editView(record)" ><template #icon><EditOutlined /></template>编辑</a-button>
 						<a-button size="small" v-focus="'/api/role/giveAccess'" type="link" @click="getNodeTree(record)" ><template #icon><ApartmentOutlined /></template>分配权限</a-button>
-						<a-button size="small" v-focus="'/api/role/delRole'" type="link" @click="delRole(record,index)" ><template #icon><DeleteOutlined /></template>删除</a-button>
+
+
+                         <a-popconfirm placement="topRight" ok-text="删除" cancel-text="取消" @confirm="delRole(record,index)">
+							<template #title>
+								<p>确定删除?</p>
+							</template>
+							<a-button size="small"  v-focus="'/api/role/delRole'" type="link"><template #icon><DeleteOutlined /></template>删除</a-button>
+						</a-popconfirm>
+
+
+
+						<!-- <a-button size="small" v-focus="'/api/role/delRole'" type="link" @click="delRole(record,index)" ><template #icon><DeleteOutlined /></template>删除</a-button> -->
+
+
 					</div>
 				</template>
 			</a-table>
@@ -161,7 +174,7 @@ export default {
 
 	methods: {
 		getData() {
-            let url = '/role';
+            let url = '/admin/role';
             let that = this
             let pages = this.pagination;
 			let params = {};
@@ -205,7 +218,7 @@ export default {
         },
         //分配权限
         getNodeTree(row){
-            let url = '/node/getNodeTree';
+            let url = '/admin/node/getNodeTree';
             let params = {
                 id:row.id
             }
@@ -229,7 +242,7 @@ export default {
                 // params.node = JSON.stringify(this.checked_node);
                 params.node = this.checked_node.toString();
                 params.id = this.checked_id;
-            let url = '/role/giveAccess';
+            let url = '/admin/role/giveAccess';
             
             fetchPost(url,params).then(res => {
                 var ret = res.data;
@@ -254,9 +267,9 @@ export default {
         handleSubmits(){
             let url = '';
             if(this.form.id != undefined){
-				url = '/role/updateRole';
+				url = '/admin/role/updateRole';
 			}else{
-				url = '/role/createRole';
+				url = '/admin/role/createRole';
 			}
             fetchPost(url,this.form).then(res => {
                 var ret = res.data;
@@ -280,7 +293,7 @@ export default {
 
         //删除
         delRole(row,index){
-            let url = '/role/delRole';
+            let url = '/admin/role/delRole';
  			let params = {};
             params.id = row.id;
             fetchGet(url,params).then(res => {

@@ -1,7 +1,7 @@
 <?php
 declare (strict_types = 1);
 
-namespace app\logic;
+namespace app\logic\admin;
 
 use think\Request;
 use library\basic\BaseLogic;
@@ -13,13 +13,11 @@ use tauthz\facade\Enforcer;
 class RoleLogic extends BaseLogic
 {
     protected $model = "";
-    protected $user;
 
-    public function __construct($user)
+    public function __construct()
     {
         parent::__construct();
         $this->model = new RoleModel();
-        $this->user = $user;
     }
 
     /**
@@ -62,13 +60,7 @@ class RoleLogic extends BaseLogic
 
         $this->model->role_name = $role_name;
         $this->model->add_time = time();
-        $res = $this->model->save();
-
-        $event['content'] = '添加角色';
-        $event['type'] = self::LOG_CREATE_TYPE;
-        $event['info'] = 'role-'.$this->model->id;
-        $event['user_id'] = ''.$this->user->id;
-        event('RecordUserLogAfter',$event);
+        $this->model->save();
 
         return self::successful('创建成功');
     }
@@ -79,7 +71,7 @@ class RoleLogic extends BaseLogic
     public function updateRole(array $param)
     {
         //判断数据是否存在
-        $data = $this->model->checkRoleId($param['id']);
+        $data = $this->model->checkRoleId((int)$param['id']);
 
         //验证名称是否存在
         $where[] = ['role_name','=',$param['role_name']];
@@ -89,13 +81,6 @@ class RoleLogic extends BaseLogic
         $data->role_name = $param['role_name'];
         $data->save();
 
-        $event['content'] = '编辑角色';
-        $event['type'] = self::LOG_CREATE_TYPE;
-        $event['info'] = 'role-'.$data->id;
-        $event['user_id'] = ''.$this->user->id;
-        event('RecordUserLogAfter',$event);
-
-
         return self::successful('修改成功');
     }
 
@@ -104,7 +89,7 @@ class RoleLogic extends BaseLogic
      */
     public function delRole($id)
     {
-        $data = $this->model->checkRoleId($id);
+        $data = $this->model->checkRoleId((int)$id);
         $data->delete();
         return self::successful('删除成功');
     }
@@ -133,12 +118,6 @@ class RoleLogic extends BaseLogic
             $node[$k]['v2'] = 'api';
         }
         RulesModel::createRulesAll(array_values($node));
-
-        $event['content'] = '分配权限';
-        $event['type'] = self::LOG_INFO_TYPE;
-        $event['info'] = 'role-'.$param['id'];
-        $event['user_id'] = ''.$this->user->id;
-        event('RecordUserLogAfter',$event);
 
         return self::successful('操作成功');
     }

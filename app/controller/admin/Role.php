@@ -6,7 +6,7 @@ namespace app\controller\admin;
 use think\Request;
 use app\BaseController;
 
-use app\logic\RoleLogic;
+use app\logic\admin\RoleLogic;
 use app\validate\RoleValidate;
 
 class Role extends BaseController
@@ -16,7 +16,7 @@ class Role extends BaseController
     public function initialize()
     {
         parent::initialize();
-        $this->logic = new RoleLogic($this->user);
+        $this->logic = new RoleLogic();
     }
 
     /**
