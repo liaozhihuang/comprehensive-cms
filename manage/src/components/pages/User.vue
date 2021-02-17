@@ -211,7 +211,7 @@ export default {
 
 	methods: {
 		getData() {
-            let url = '/user';
+            let url = '/admin/user';
             let that = this
             let pages = this.pagination;
 			let params = {};
@@ -227,7 +227,7 @@ export default {
 
         //获取角色
         getRoleAll(){
-            let url = '/role/getRole';
+            let url = '/admin/role/getRole';
             fetchGet(url).then(res => {
                 var ret = res.data;
                 this.roleAll = ret.data;
@@ -236,7 +236,7 @@ export default {
 
         //获取用户组
         getUserGroup(){
-            let url = '/userGroup/getUserGroup';
+            let url = '/admin/userGroup/getUserGroup';
             fetchGet(url).then(res => {
                 var ret = res.data;
                 this.groupAll = ret.data;
@@ -279,9 +279,9 @@ export default {
         handleSubmits(){
             let url = '';
             if(this.form.id != undefined){
-				url = '/user/updateUser';
+				url = '/admin/user/updateUser';
 			}else{
-				url = '/user/createUser';
+				url = '/admin/user/createUser';
 			}
             fetchPost(url,this.form).then(res => {
                 var ret = res.data;
@@ -306,7 +306,7 @@ export default {
 
         //用户操作
         statusOperation(row){
-            let url = '/user/statusOperation';
+            let url = '/admin/user/statusOperation';
  			let params = {};
             params.id = row.id;
             fetchGet(url,params).then(res => {
@@ -323,7 +323,7 @@ export default {
 
         //删除
         deluser(row,index){
-            let url = '/user/delUser';
+            let url = '/admin/user/delUser';
  			let params = {};
             params.id = row.id;
             fetchGet(url,params).then(res => {

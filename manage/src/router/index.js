@@ -1,6 +1,8 @@
 import { createRouter,createWebHistory } from 'vue-router'
 import Index from "../components/pages/Index.vue"
 import User from "../components/pages/User.vue"
+import Role from "../components/pages/Role.vue"
+import Node from "../components/pages/Node.vue"
 
 import Header from '../components/common/Header.vue'
 
@@ -32,7 +34,16 @@ const router = createRouter({
 					name: 'user',
 					component:User,
 				},
-
+				{
+					path: '/role',
+					name: 'role',
+					component:Role,
+				},
+				{
+					path: '/node',
+					name: 'node',
+					component:Node,
+				},
 
 
 
