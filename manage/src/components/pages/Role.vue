@@ -16,9 +16,10 @@
 				<!-- 按钮 -->
 				<template #operation="{record }" >
 					<div class="editable-row-operations" v-if="record.id !=1">
+                        
 						<a-button size="small" type="link" v-focus="'/api/role/updateRole'" @click="editView(record)" ><template #icon><EditOutlined /></template>编辑</a-button>
-						<a-button size="small" v-focus="'/api/role/giveAccess'" type="link" @click="getNodeTree(record)" ><template #icon><ApartmentOutlined /></template>分配权限</a-button>
 
+						<a-button size="small" v-focus="'/api/role/giveAccess'" type="link" @click="getNodeTree(record)" ><template #icon><ApartmentOutlined /></template>分配权限</a-button>
 
                          <a-popconfirm placement="topRight" ok-text="删除" cancel-text="取消" @confirm="delRole(record,index)">
 							<template #title>
@@ -26,12 +27,6 @@
 							</template>
 							<a-button size="small"  v-focus="'/api/role/delRole'" type="link"><template #icon><DeleteOutlined /></template>删除</a-button>
 						</a-popconfirm>
-
-
-
-						<!-- <a-button size="small" v-focus="'/api/role/delRole'" type="link" @click="delRole(record,index)" ><template #icon><DeleteOutlined /></template>删除</a-button> -->
-
-
 					</div>
 				</template>
 			</a-table>
