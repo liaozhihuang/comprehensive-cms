@@ -32,7 +32,7 @@ class User extends BaseController
      */
     public function createUser()
     {
-        $param = $this->request->only(['user_name','role','group_id','password','password2','real_name','status']);
+        $param = $this->request->only(['user_name','role','password','password2','real_name','status']);
         $validate = new UserValidate();
         if(!$validate->scene('insert')->check($param)){
             return self::fail($validate->getError());
@@ -45,7 +45,7 @@ class User extends BaseController
      */
     public function updateUser()
     {
-        $param = $this->request->only(['id','user_name','role','real_name','status','group_id']);
+        $param = $this->request->only(['id','user_name','role','real_name','status']);
         $validate = new UserValidate();
         if(!$validate->scene('update')->check($param)){
             /** @final JsonService  */

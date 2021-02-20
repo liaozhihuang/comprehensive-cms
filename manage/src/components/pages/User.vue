@@ -68,12 +68,6 @@
                             </a-select>
                         </a-form-item>
 
-                        <a-form-item label="用户组">
-                            <a-select v-model:value="form.group_id" ref="select">
-                                <a-select-option v-for="group in groupAll" :value="group.id"> {{group.group_name}}</a-select-option>
-                            </a-select>
-                        </a-form-item>
-
                         <a-form-item label="登录密码" v-if="!form.id">
                            <a-input-password v-model:value="form.password" placeholder="请输入密码" />
                         </a-form-item>
@@ -113,12 +107,6 @@ const columns = [
 		slots: { customRender: 'role_name' },
 		align: 'center'
     },
-    {
-		title: '所属用户组',
-		dataIndex: 'group_name',
-		slots: { customRender: 'group_name' },
-		align: 'center'
-	},
 	{
 		title: '登陆次数',
 		dataIndex: 'login_times',
@@ -205,7 +193,6 @@ export default {
         this.form = JSON.parse(JSON.stringify(forms));
         this.getData();
         this.getRoleAll();
-        this.getUserGroup();
     },
    
 
@@ -231,15 +218,6 @@ export default {
             fetchGet(url).then(res => {
                 var ret = res.data;
                 this.roleAll = ret.data;
-            })
-        },
-
-        //获取用户组
-        getUserGroup(){
-            let url = '/admin/userGroup/getUserGroup';
-            fetchGet(url).then(res => {
-                var ret = res.data;
-                this.groupAll = ret.data;
             })
         },
 

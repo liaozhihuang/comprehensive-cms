@@ -25,13 +25,21 @@ class UserModel extends BaseModel
 
     const SUPER_ADMIN = 1; //超级管理员
 
+    /**
+     * 一对一关联
+     */
+    public function roles()
+    {
+        return $this->hasOne(RoleModel::class,'id','role')->bind(['role_name']);
+    }
+
 
     /**
      * 数据列表
      */
     public function getUserAll(array $where,int $limit,int $offset):array
     {
-        return self::where($where)->with(['roles','usergroup'])->order('add_time','desc')->limit($offset,$limit)->order('add_time','desc')->select()->toArray();
+        return self::where($where)->with(['roles'])->order('add_time','desc')->limit($offset,$limit)->order('add_time','desc')->select()->toArray();
     }
 
     /**
@@ -40,6 +48,14 @@ class UserModel extends BaseModel
     public function getUserTotal(array $where):int
     {
         return self::where($where)->count();
+    }
+
+    /**
+     * 添加时间
+     */
+    public function getAddTimeAttr($value)
+    {
+        return date('Y-m-d H:i:s',(int)$value);
     }
 
     /**

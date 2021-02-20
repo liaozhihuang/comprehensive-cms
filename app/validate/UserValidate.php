@@ -11,7 +11,6 @@ class UserValidate extends Validate
         'id'    =>'require|integer',
         'user_name'    =>'require|max:10',
         'role'    =>  'require|integer',
-        'group_id'    =>  'require|integer',
         'password'    =>  'require|max:20|pass',
         'password2'    =>  'require|max:20',
         'real_name'    =>  'require|max:10',
@@ -24,8 +23,6 @@ class UserValidate extends Validate
         'user_name.max'    =>  '管理员账号长度不正确',
         'role.require'    =>  '角色必须',
         'role.integer'    =>  '角色格式错误',
-        'group_id.require'    =>  '用户组必须',
-        'group_id.integer'    =>  '用户组格式错误',
         'password.require'    =>  '密码必须填写',
         'password.max'    =>  '密码长度不正确',
         'password.pass'    =>  '两次密码不一致',
@@ -38,8 +35,8 @@ class UserValidate extends Validate
     ];
 
     protected $scene = [
-        'insert'    =>  ['user_name','role','group_id','password','password2','real_name','status'],
-        'update'    =>  ['id','group_id','user_name','role','real_name','status'],
+        'insert'    =>  ['user_name','role','password','password2','real_name','status'],
+        'update'    =>  ['id','user_name','role','real_name','status'],
         'pass' =>   ['password','passowrd2'],
         'switch_status'  =>  ['id','status'],
     ];
