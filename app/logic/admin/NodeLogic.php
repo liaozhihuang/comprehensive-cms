@@ -3,8 +3,6 @@ declare (strict_types = 1);
 
 namespace app\logic\admin;
 
-use think\Request;
-
 use app\model\NodeModel;
 use library\basic\BaseLogic;
 use tauthz\facade\Enforcer;
