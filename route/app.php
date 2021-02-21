@@ -74,21 +74,13 @@ Route::group('api',function () {
             Route::get('getNodeTree','node/getNodeTree');
         });
 
-        /* 角色 */
-        Route::group('userGroup', function () {
-            //所有组
-            Route::get('getUserGroup','userGroup/getUserGroup');
-            //列表
-            Route::get('/','userGroup/index');
-            //编辑
-            Route::post('updateUserGroup','userGroup/updateUserGroup');
-            //创建
-            Route::post('createUserGroup','userGroup/createUserGroup');
-            //删除
-            Route::get('delUserGroup','userGroup/delUserGroup');
+  
+
+        /* api */
+        Route::group('index', function () {
+            //栏目
+            Route::get('getMenu','index/getMenu');
         });
-
-
 
 
     })->prefix('admin.');

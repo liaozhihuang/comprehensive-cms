@@ -23,14 +23,18 @@ class IndexLogic extends BaseLogic
      */
     public function getMenu()
     {
-
         //判断是否进入站点  获取站点菜单
 
 
         //获取所有菜单
         $menuColumn = NodeModel::getMenuColumn();
+
+
+
         //获取用户节点
         $authArray = Enforcer::getPermissionsForUser($this->user->role);
+
+
         //整理菜单
         $data = NodeBusiness::prepareMenu($menuColumn,$authArray,$this->user,true);
 
