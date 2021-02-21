@@ -25,6 +25,7 @@
         "topthink/think-migration": "^3.0",
         "casbin/think-authz": "^1.0",
         "yunwuxin/think-auth": "^3.0",
+        "remixicon": "^2.5.0",
         "topthink/think-orm": "^2.0"
     },
     "require-dev": {

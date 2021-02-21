@@ -14,6 +14,7 @@
                         <template #title>
                             <span>
                                 <AppstoreOutlined /><span>{{item.title}}</span>
+                                <!-- <vab-icon :icon="item.icon"></vab-icon><span class="subtitle">{{item.title}}</span> -->
                             </span>
                         </template>
                         <a-menu-item v-for="(vo) in item.subs" @click="menuClick(vo)" :key="vo.id">
@@ -59,6 +60,8 @@
 
 
 <script>
+import VabIcon from './Icon'
+
 import {fetchPost,fetchGet} from '../../utils/http'
 
 import {
@@ -79,6 +82,7 @@ export default {
         DesktopOutlined,
         InboxOutlined,
         AppstoreOutlined,
+        VabIcon
     },
     data() {
         return {
@@ -128,12 +132,7 @@ export default {
 
         //获取栏目
         getMenu(){
-            let url = ''
-            if(this.user.is_into_web){
-                url = '/index/getWebsiteMenu';
-            }else{
-                url = '/index/getMenu';
-            }
+            let url = '/admin/index/getMenu';
             fetchGet(url).then(res => {
                 var ret = res.data;
                 this.menuList = ret.data
@@ -257,5 +256,8 @@ export default {
 #components-layout-demo-custom-trigger .logo img {
     height: 70%;
     margin: 0 10% auto;
+}
+.subtitle{
+    margin-left:10px
 }
 </style>
