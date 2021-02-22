@@ -27,6 +27,8 @@ Route::group('api',function () {
     });
 
 
+
+
     Route::group('admin',function () {
         /* 用户 */
         Route::group('user', function () {
@@ -74,12 +76,34 @@ Route::group('api',function () {
             Route::get('getNodeTree','node/getNodeTree');
         });
 
-  
+        //菜单
+        Route::group('menu', function () {
+            //列表
+            Route::get('/','menu/index');
+            //添加
+            Route::post('createMenu','menu/createMenu');
+            //更新
+            Route::post('updateMenu','menu/updateMenu');
+            //删除
+            Route::get('delMenu','menu/delMenu');
+            //操作
+            Route::get('statusOperation','menu/statusOperation');
+            //推荐
+            Route::get('recommendOperation','menu/recommendOperation');
+            //获取栏目
+            Route::get('getMenu','menu/getMenu');
+        });
 
         /* api */
         Route::group('index', function () {
             //栏目
             Route::get('getMenu','index/getMenu');
+        });
+
+        /*  上传  */
+        Route::group('upload', function () {
+            //上传图片 file
+            Route::post('uploadImageSingle','upload/uploadImageSingle');
         });
 
 

@@ -97,12 +97,12 @@ export default {
     created() {
         let user= JSON.parse(localStorage.getItem('user'));
         let token= localStorage.getItem('authorization');
-        if(token == undefined || token ==null){
-            this.$router.push({
-                path: '/login',
-            });
-            return false;
-        }
+        // if(token == undefined || token ==null){
+        //     this.$router.push({
+        //         path: '/login',
+        //     });
+        //     return false;
+        // }
         this.user = user;
         this.getMenu();
         let menu = JSON.parse(sessionStorage.getItem('menu'));

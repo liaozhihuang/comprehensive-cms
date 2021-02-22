@@ -3,6 +3,7 @@ import Index from "../components/pages/Index.vue"
 import User from "../components/pages/User.vue"
 import Role from "../components/pages/Role.vue"
 import Node from "../components/pages/Node.vue"
+import Menu from "../components/pages/Menu.vue"
 
 import Header from '../components/common/Header.vue'
 
@@ -44,6 +45,12 @@ const router = createRouter({
 					name: 'node',
 					component:Node,
 				},
+				{
+					path: '/menu',
+					name: 'menu',
+					component:Menu,
+				},
+
 
 
 
