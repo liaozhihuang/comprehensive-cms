@@ -4,6 +4,7 @@ import User from "../components/pages/User.vue"
 import Role from "../components/pages/Role.vue"
 import Node from "../components/pages/Node.vue"
 import Menu from "../components/pages/Menu.vue"
+import MenuGroup from "../components/pages/MenuGroup.vue"
 
 import Header from '../components/common/Header.vue'
 
@@ -49,6 +50,11 @@ const router = createRouter({
 					path: '/menu',
 					name: 'menu',
 					component:Menu,
+				},
+				{
+					path: '/menuGroup',
+					name: 'menuGroup',
+					component:MenuGroup,
 				},
 
 
