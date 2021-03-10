@@ -12,6 +12,7 @@ class MenuValidate extends Validate
         'menu_name' =>  'require|max:30', //节点名称
         'menu_sign'    =>  'require|max:15|alphaDash', //标识
         'img_url' =>  'require',  //图片 
+        'group_sign'  =>  'require', //菜单组🆔id
         'status'    =>  'require|integer', //状态
         'sort'  =>  'require|integer', //排序
         "recommend" =>  'require|integer',
@@ -31,6 +32,8 @@ class MenuValidate extends Validate
 
         'img_url.require' =>  '菜单图片必须',
 
+        'group_sign.require'  =>  '所属组必须',
+
         'status.require'  =>  '请选择状态',
         'status.integer'   =>  '状态必须填写',
 
@@ -48,8 +51,8 @@ class MenuValidate extends Validate
 
     protected $scene = [
         //添加顶级
-        'create'    =>  ['menu_name','menu_sign','img_url','recommend','sort','status','pid'], 
+        'create'    =>  ['menu_name','menu_sign','img_url','group_sign','recommend','sort','status','pid'], 
         //修改
-        'update'  =>  ['id','menu_name','img_url','recommend','sort','status','pid'],
+        'update'  =>  ['id','menu_name','img_url','group_sign','recommend','sort','status','pid'],
     ];
 }
