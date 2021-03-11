@@ -94,6 +94,21 @@ Route::group('api',function () {
             Route::get('getMenu','menu/getMenu');
         });
 
+        //菜单组
+        Route::group('menuGroup', function () {
+            //列表
+            Route::get('/','menuGroup/index');
+            //添加
+            Route::post('createMenuGroup','menuGroup/createMenuGroup');
+            //更新
+            Route::post('updateMenuGroup','menuGroup/updateMenuGroup');
+            //删除
+            Route::get('delMenuGroup','menuGroup/delMenuGroup');
+            //获取数据
+            Route::get('getMenuGroup','menuGroup/getMenuGroup');
+        });
+
+
         /* api */
         Route::group('index', function () {
             //栏目
