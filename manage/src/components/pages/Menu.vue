@@ -69,6 +69,12 @@
                             <a-input v-model:value="form.menu_sign" placeholder="菜单标识" />
                         </a-form-item>
 
+                        <a-form-item label="所属组" >
+                            <a-select v-model:value="form.group_sign" ref="select">
+                                <a-select-option v-for="group in groupAll" :value="group.group_sign"> {{group.group_name}}</a-select-option>
+                            </a-select>
+                        </a-form-item>
+
                         <a-form-item label="上级菜单" v-if="is_son">
                             <a-input v-model:value="topname" placeholder="顶级菜单" :disabled="true" />
                         </a-form-item>
@@ -134,6 +140,12 @@ const columns = [
         title: '菜单标识',
         dataIndex: 'menu_sign',
         slots: { customRender: 'menu_sign' },
+        align: 'center'
+    },
+    {
+        title: '所属组',
+        dataIndex: 'group_name',
+        slots: { customRender: 'group_name' },
         align: 'center'
     },
     {
@@ -218,6 +230,7 @@ export default {
     mounted() {
         this.form = JSON.parse(JSON.stringify(forms));
         this.getData();
+        this.getGroup();
     },
    
 
@@ -230,6 +243,15 @@ export default {
             fetchGet(url,params).then(res => {
                 var ret = res.data;
 				this.menuAll = ret.data;
+            })
+        },
+
+        getGroup(){
+            let url = '/admin/menuGroup/getMenuGroup';
+            let that = this
+            fetchGet(url).then(res => {
+                var ret = res.data;
+				this.groupAll = ret.data;
             })
         },
 
