@@ -22,13 +22,21 @@ class MenuModel extends BaseModel
 
     const STATUS_HIDDEN = 0; //隐藏
 
+    /**
+     * 一对一关联 分组
+     */
+    public function group()
+    {
+        return $this->hasOne(MenuGroupModel::class,'group_sign','group_sign')->bind(['group_name']);
+    }
+
 
     /**
      * 列表数据
      */
     public function getMenuAll(array $where)
     {
-        return self::where($where)->order(['sort'=>'desc','id'])->select()->toArray();
+        return self::where($where)->with('group')->order(['sort'=>'desc','id'])->select()->toArray();
     }
 
     /**

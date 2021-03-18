@@ -33,7 +33,7 @@ class Menu extends BaseController
      */
     public function createMenu()
     {
-        $param = $this->request->only(['menu_name','menu_sign','img_url','sort','status','pid','recommend']);
+        $param = $this->request->only(['menu_name','menu_sign','img_url','sort','status','pid','recommend','group_sign']);
         $validate = new MenuValidate();
         if(!$validate->scene('create')->check($param)){
             return self::fail($validate->getError());
@@ -46,7 +46,7 @@ class Menu extends BaseController
      */
     public function updateMenu()
     {
-        $param = $this->request->only(['id','menu_name','img_url','sort','status','pid','recommend']);
+        $param = $this->request->only(['id','menu_name','img_url','sort','status','pid','recommend','group_sign']);
     
         $validate = new MenuValidate();
         if(!$validate->scene('update')->check($param)){
