@@ -108,6 +108,20 @@ Route::group('api',function () {
             Route::get('getMenuGroup','menuGroup/getMenuGroup');
         });
 
+        //广告列表
+        Route::group('ad', function () {
+            //列表
+            Route::get('/','ad/index');
+            //添加
+            Route::post('createAd','ad/createAd');
+            //更新
+            Route::post('updateAd','ad/updateAd');
+            //删除
+            Route::get('delAd','ad/delAd');
+            //更改状态
+            Route::get('statusOperation','ad/statusOperation');
+        });
+
 
         /* api */
         Route::group('index', function () {
