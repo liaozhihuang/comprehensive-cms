@@ -5,6 +5,7 @@ import Role from "../components/pages/Role.vue"
 import Node from "../components/pages/Node.vue"
 import Menu from "../components/pages/Menu.vue"
 import MenuGroup from "../components/pages/MenuGroup.vue"
+import Ad from "../components/pages/Ad.vue"
 
 import Header from '../components/common/Header.vue'
 
@@ -56,7 +57,11 @@ const router = createRouter({
 					name: 'menuGroup',
 					component:MenuGroup,
 				},
-
+				{
+					path: '/ad',
+					name: 'ad',
+					component:Ad,
+				},
 
 
 
