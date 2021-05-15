@@ -6,10 +6,11 @@ namespace app\controller\admin;
 use think\Request;
 use app\BaseController;
 use app\logic\admin\AdLogic;
+use app\validate\AdValidate;
 
 class Ad extends BaseController
 {
-    protected $logic = "";
+    protected $logic;
 
     public function initialize()
     {

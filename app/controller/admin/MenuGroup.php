@@ -10,7 +10,7 @@ use app\validate\MenuGroupValidate;
 
 class MenuGroup extends BaseController
 {
-    protected $logic = "";
+    protected $logic;
 
     public function initialize()
     {

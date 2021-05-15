@@ -6,7 +6,7 @@ namespace app\logic\admin;
 use think\Request;
 use library\basic\BaseLogic;
 use app\model\AdModel;
-use app\business\Jobs;
+use lib\services\Jobs;
 
 class AdLogic extends BaseLogic
 {
