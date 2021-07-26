@@ -10,7 +10,7 @@ class AdValidate extends Validate
     protected $rule = [
         'id'    =>  'require|integer',
         'ad_name' =>  'require|max:40',
-        'group_sign'    =>  'require|max:15|alphaDash', //标识
+        'group_id'    =>  'require', //标识
         'img_url'  =>  'require',
         'status' =>  'require|integer',
         'link'  =>  'url',
@@ -22,9 +22,7 @@ class AdValidate extends Validate
         'ad_name.require' =>  'banner名称必须',
         'ad_name.max' =>  'banner名称长度不符合',
 
-        'group_sign.require' =>  '广告组必须',
-        'group_sign.alphaDash' =>  '广告组格式错误',
-        'group_sign.max' =>  '广告组长度不符合',
+        'group_id.require' =>  '广告组必须',
 
         'link.url'  =>  '链接格式错误',
 
@@ -35,8 +33,8 @@ class AdValidate extends Validate
     ];
 
     protected $scene = [
-        'update'  =>  ['id','ad_name','link','img_url','status'],
-        'create'    =>  ['ad_name','link','img_url','status'],
+        'update'  =>  ['id','ad_name','link','img_url','status','group_id'],
+        'create'    =>  ['ad_name','link','img_url','status','group_id'],
         'switch_status' =>  ['id','status'],
     ];
 
